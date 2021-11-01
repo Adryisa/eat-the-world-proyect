@@ -1,22 +1,27 @@
+import './Footer.scss';
+import pinterestIcon from '../../assets/icons/pinterest.svg';
+import instagramIcon from '../../assets/icons/instagram.svg';
+import twitterIcon from '../../assets/icons/twitter.svg';
+
 const Footer = () => {
   return (
     <footer className="footer">
       <p className="footer__text">&copy; 2021 Eat the World</p>
       <div className="footer__social-media">
         <img
-          src="../icons/pinterest.svg"
+          src={pinterestIcon}
           alt="Pinterest icon"
-          className="footer__social-media-pinterest"
+          className="footer__social-media-icon"
         />
         <img
-          src="../icons/instagram.svg"
+          src={instagramIcon}
           alt="Instagram icon"
-          className="footer__social-media-instagram"
+          className="footer__social-media-icon"
         />
         <img
-          src="../icons/twitter.svg"
+          src={twitterIcon}
           alt="Twitter icon"
-          className="footer__social-media-twiter"
+          className="footer__social-media-icon"
         />
       </div>
     </footer>

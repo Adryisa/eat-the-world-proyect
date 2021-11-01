@@ -1,4 +1,5 @@
 import Search from './Search';
+import './Home.scss';
 
 const Home = () => {
   return (

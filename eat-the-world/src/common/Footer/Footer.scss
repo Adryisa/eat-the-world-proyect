@@ -1,7 +1,9 @@
+@import 'scss/variables';
+
 .footer {
   height: 4.5rem;
   padding: 0 2rem;
-  background: #d9dd6b;
+  background: $primary-color;
   display: flex;
   justify-content: space-between;
   align-items: center;

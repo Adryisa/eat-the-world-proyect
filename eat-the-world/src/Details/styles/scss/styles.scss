@@ -2,16 +2,6 @@ li {
   list-style-type: none;
 }
 
-* {
-  border: 0;
-  padding: 0;
-}
-
-.body {
-  border: 0;
-  padding: 0;
-}
-
 .details-main {
   border: 0;
   padding: 0;
@@ -39,3 +29,6 @@ li {
   color: #8d2828;
 }
 /*# sourceMappingURL=styles.css.map */
+.recipe__text {
+  text-align: justify;
+}

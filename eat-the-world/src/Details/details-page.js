@@ -1,33 +1,44 @@
+import './styles/scss/styles.scss';
+
 export default function DetailsPage({ props }) {
   return (
     <main className="details-main">
-      <h2 className="title">{title}</h2>
-      <img className="picture" src={image} alt={title} />
+      <div className="title">
+        <h2 className="title__text">Recipes tittle</h2>
+      </div>
+      <img className="picture" src="" alt="" />
       <ul className="icons">
         <li className="icons__favorite">
-          <a href=""></a>
+          F<img href="../../public/icons/star.svg" />
         </li>
         <li className="icons__share">
-          <a href=""></a>
+          S<img href="../../public/icons/star.svg" />
         </li>
         <li className="icons__print">
-          <a href=""></a>
+          P<img href="../../public/icons/star.svg" />
         </li>
       </ul>
-      <ul class="details-list">
-        <li class="details-list__detail">
-          <a href="">DETAIL CLASS</a>
-        </li>
-      </ul>
-      <ul class="ingredients-list">
-        <li class="ingredients-list__ingredients">INGREDIENTS CLASS</li>
-      </ul>
-      <p class="recipe">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis odio
-        vel quaerat error officia incidunt veritatis, sit praesentium, nisi
-        harum aliquid iste rerum eum, rem corporis cumque molestias fugiat
-        voluptate!
-      </p>
+      <div className="details">
+        <h3 className="details__title">Details</h3>
+        <ul className="details__list">
+          <li className="details__list--detail">4 persons</li>
+        </ul>
+      </div>
+      <div className="ingredients">
+        <h3 className="ingredients__title">Ingredients</h3>
+        <ul className="ingredients__list">
+          <li className="ingredients__list--ingredients">Tomatoes</li>
+        </ul>
+      </div>
+      <div className="recipe">
+        <h3 className="recipe__title">Recipe</h3>
+        <p className="recipe__text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis
+          odio vel quaerat error officia incidunt veritatis, sit praesentium,
+          nisi harum aliquid iste rerum eum, rem corporis cumque molestias
+          fugiat voluptate!
+        </p>
+      </div>
     </main>
   );
 }

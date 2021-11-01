@@ -1,5 +1,12 @@
+import Home from './Home/Home';
+import './App.scss';
+
 function App() {
-  return <div className="patata"></div>;
+  return (
+    <main className="main">
+      <Home />
+    </main>
+  );
 }
 
 export default App;

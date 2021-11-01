@@ -1,12 +1,16 @@
+import Header from './common/Header/Header';
 import Home from './Home/Home';
 import './App.scss';
 import DetailsPage from 'Details/details-page';
+import Footer from 'common/Footer/Footer';
 
 function App() {
   return (
     <main className="main">
+      <Header />
       <Home />
       <DetailsPage />
+      <Footer />
     </main>
   );
 }

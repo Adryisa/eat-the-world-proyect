@@ -1,5 +1,11 @@
+import Header from "./common/Header/Header";
+
 function App() {
-  return <div className="patata"></div>;
+  return (
+    <main className="main">
+      <Header />
+    </main>
+  );
 }
 
 export default App;

@@ -1,0 +1,15 @@
+.header {
+  position: absolute;
+  height: 6.6rem;
+  width: 100%;
+  background: #d9dd6b;
+
+  &__title {
+    display: none;
+  }
+
+  &__hamburger-login {
+    display: flex;
+    justify-content: space-between;
+  }
+}

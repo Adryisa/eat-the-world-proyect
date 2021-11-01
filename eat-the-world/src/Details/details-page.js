@@ -1,4 +1,5 @@
 import './details.scss';
+import sopa from 'assets/img/sopa.jpg';
 import starIcon from 'assets/icons/star.svg';
 import shareIcon from 'assets/icons/share.svg';
 import printIcon from 'assets/icons/cil_print.svg';
@@ -10,7 +11,7 @@ export default function DetailsPage({ props }) {
         <h2 className="details-header__title">Recipes tittle</h2>
         <img
           className="details-picture"
-          src=""
+          src={sopa}
           alt="Aqui una foto de lado a lado"
         />
       </div>

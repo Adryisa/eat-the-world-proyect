@@ -1,0 +1,41 @@
+li {
+  list-style-type: none;
+}
+
+* {
+  border: 0;
+  padding: 0;
+}
+
+.body {
+  border: 0;
+  padding: 0;
+}
+
+.details-main {
+  border: 0;
+  padding: 0;
+}
+.picture {
+  border: 0;
+  padding: 0;
+}
+.details-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: #8d2828;
+}
+/*# sourceMappingURL=styles.css.map */

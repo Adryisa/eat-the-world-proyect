@@ -1,4 +1,7 @@
 import './details.scss';
+import starIcon from 'assets/icons/star.svg';
+import shareIcon from 'assets/icons/share.svg';
+import printIcon from 'assets/icons/cil_print.svg';
 
 export default function DetailsPage({ props }) {
   return (
@@ -13,30 +16,18 @@ export default function DetailsPage({ props }) {
           alt="Aqui una foto de lado a lado"
         />
       </div>
+      <ul className="details-menu">
+        <li className="details-menu__item">
+          <img className="details-menu__image" src={starIcon} alt="favorite" />
+        </li>
+        <li className="details-menu__item">
+          <img className="details-menu__image" src={shareIcon} alt="share" />
+        </li>
+        <li className="details-menu__item">
+          <img className="details-menu__image" src={printIcon} alt="print" />
+        </li>
+      </ul>
       <div className="details-body">
-        <ul className="details-menu">
-          <li className="details-menu__item">
-            <img
-              className="details-menu__image"
-              href="../../public/icons/star.svg"
-              alt="favorite"
-            />
-          </li>
-          <li className="details-menu__item">
-            <img
-              className="details-menu__image"
-              href="../../public/icons/star.svg"
-              alt="share"
-            />
-          </li>
-          <li className="details-menu__item">
-            <img
-              className="details-menu__image"
-              href="../../public/icons/star.svg"
-              alt="print"
-            />
-          </li>
-        </ul>
         <div className="details-details">
           <h3 className="details-details__title">Details</h3>
           <div className="details-details-list">

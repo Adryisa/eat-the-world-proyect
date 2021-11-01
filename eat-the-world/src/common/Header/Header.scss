@@ -1,6 +1,8 @@
+@import 'scss/variables';
+
 .header {
   height: 4.5rem;
-  background: #d9dd6b;
+  background: $primary-color;
 
   &__title {
     display: none;

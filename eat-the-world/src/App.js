@@ -3,13 +3,18 @@ import Home from './Home/Home';
 import './App.scss';
 import DetailsPage from 'Details/details-page';
 import Footer from 'common/Footer/Footer';
+import ListPage from 'ListPage/ListPage';
 
 function App() {
   return (
     <main className="main">
       <Header />
       <Home />
+<<<<<<< HEAD
+      <ListPage />
+=======
       <DetailsPage />
+>>>>>>> main
       <Footer />
     </main>
   );

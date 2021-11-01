@@ -1,44 +1,66 @@
-import './styles.scss';
+import './details.scss';
 
 export default function DetailsPage({ props }) {
   return (
-    <main className="details-main">
-      <div className="title">
-        <h2 className="title__text">Recipes tittle</h2>
+    <section className="details">
+      <div className="details-header">
+        <div className="details-title">
+          <h2 className="details-title__text">Recipes tittle</h2>
+        </div>
+        <img
+          className="details-picture"
+          src=""
+          alt="Aqui una foto de lado a lado"
+        />
       </div>
-      <img className="picture" src="" alt="Aqui una foto" />
-      <ul className="icons">
-        <li className="icons__favorite">
-          F<img href="../../public/icons/star.svg" />
-        </li>
-        <li className="icons__share">
-          S<img href="../../public/icons/star.svg" />
-        </li>
-        <li className="icons__print">
-          P<img href="../../public/icons/star.svg" />
-        </li>
-      </ul>
-      <div className="details">
-        <h3 className="details__title">Details</h3>
-        <ul className="details__list">
-          <li className="details__list--detail">4 persons</li>
+      <div className="details-body">
+        <ul className="details-menu">
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              href="../../public/icons/star.svg"
+              alt="favorite"
+            />
+          </li>
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              href="../../public/icons/star.svg"
+              alt="share"
+            />
+          </li>
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              href="../../public/icons/star.svg"
+              alt="print"
+            />
+          </li>
         </ul>
+        <div className="details-details">
+          <h3 className="details-details__title">Details</h3>
+          <div className="details-details-list">
+            <p className="details-details-list__item">4 persons</p>
+            <p className="details-details-list__item">30 min</p>
+          </div>
+        </div>
+        <div className="details-ingredients">
+          <h3 className="details-ingredients__title">Ingredients</h3>
+          <div className="details-ingredients-list">
+            <p className="details-ingredients-list__item">Tomatoes</p>
+            <p className="details-ingredients-list__item">Patatas</p>
+          </div>
+        </div>
+        <div className="details-recipe">
+          <h3 className="details-recipe__title">Recipe</h3>
+          <p className="details-recipe__text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis
+            odio vel quaerat error officia incidunt veritatis, sit praesentium,
+            nisi harum aliquid iste rerum eum, rem corporis cumque molestias
+            fugiat voluptate!
+          </p>
+        </div>
       </div>
-      <div className="ingredients">
-        <h3 className="ingredients__title">Ingredients</h3>
-        <ul className="ingredients__list">
-          <li className="ingredients__list--ingredients">Tomatoes</li>
-        </ul>
-      </div>
-      <div className="recipe">
-        <h3 className="recipe__title">Recipe</h3>
-        <p className="recipe__text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis
-          odio vel quaerat error officia incidunt veritatis, sit praesentium,
-          nisi harum aliquid iste rerum eum, rem corporis cumque molestias
-          fugiat voluptate!
-        </p>
-      </div>
-    </main>
+    </section>
   );
 }

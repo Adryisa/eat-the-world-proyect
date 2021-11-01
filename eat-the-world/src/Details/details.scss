@@ -1,0 +1,32 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details-header {
+  border: 0;
+  padding: 0;
+}
+
+.details-body {
+  padding: 1rem;
+}
+
+.details-title {
+  display: flex;
+  justify-content: center;
+  color: #8d2828;
+}
+
+.details-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.details-details {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

@@ -1,4 +1,4 @@
-import './styles/scss/styles.scss';
+import './styles.scss';
 
 export default function DetailsPage({ props }) {
   return (
@@ -6,7 +6,7 @@ export default function DetailsPage({ props }) {
       <div className="title">
         <h2 className="title__text">Recipes tittle</h2>
       </div>
-      <img className="picture" src="" alt="" />
+      <img className="picture" src="" alt="Aqui una foto" />
       <ul className="icons">
         <li className="icons__favorite">
           F<img href="../../public/icons/star.svg" />

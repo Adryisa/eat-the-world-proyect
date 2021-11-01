@@ -7,28 +7,29 @@
 .details-header {
   border: 0;
   padding: 0;
-}
-.details-title {
-  display: flex;
-  justify-content: center;
-  color: #8d2828;
-  padding: 2rem;
-}
 
-.details-menu__item {
-  display: flex;
-  padding: 1rem;
-  gap: 10rem;
-}
-
-.details-body {
-  padding: 1rem;
+  &__title {
+    color: #8d2828;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .details-menu {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+
+  &__item {
+    display: flex;
+    padding: 1rem;
+    gap: 10rem;
+  }
+}
+
+.details-body {
+  padding: 1rem;
 }
 
 .details-details {

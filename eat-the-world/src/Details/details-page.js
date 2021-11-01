@@ -7,9 +7,7 @@ export default function DetailsPage({ props }) {
   return (
     <section className="details">
       <div className="details-header">
-        <div className="details-title">
-          <h2 className="details-title__text">Recipes tittle</h2>
-        </div>
+        <h2 className="details-header__title">Recipes tittle</h2>
         <img
           className="details-picture"
           src=""

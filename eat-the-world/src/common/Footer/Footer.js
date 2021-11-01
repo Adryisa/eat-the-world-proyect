@@ -11,17 +11,17 @@ const Footer = () => {
         <img
           src={pinterestIcon}
           alt="Pinterest icon"
-          className="footer__social-media-pinterest"
+          className="footer__social-media-icon"
         />
         <img
           src={instagramIcon}
           alt="Instagram icon"
-          className="footer__social-media-instagram"
+          className="footer__social-media-icon"
         />
         <img
           src={twitterIcon}
           alt="Twitter icon"
-          className="footer__social-media-twiter"
+          className="footer__social-media-icon"
         />
       </div>
     </footer>

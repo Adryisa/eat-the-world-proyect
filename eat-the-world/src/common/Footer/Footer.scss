@@ -1,0 +1,21 @@
+.footer {
+  height: 4.5rem;
+  padding: 0 2rem;
+  background: #d9dd6b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    font-size: 1.2rem;
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__social-media-icon {
+    height: 2rem;
+  }
+}

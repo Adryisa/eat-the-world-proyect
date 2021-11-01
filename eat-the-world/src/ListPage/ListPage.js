@@ -1,4 +1,4 @@
-import ListRecipe from 'common/ListRecipe';
+import ListRecipe from 'common/ListRecipe/ListRecipe';
 
 const ListPage = () => {
   return (

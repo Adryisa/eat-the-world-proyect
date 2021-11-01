@@ -1,7 +1,7 @@
 import './Footer.scss';
-import pinterestIcon from '../../assets/icons/pinterest.svg';
-import instagramIcon from '../../assets/icons/instagram.svg';
-import twitterIcon from '../../assets/icons/twitter.svg';
+import pinterestIcon from 'assets/icons/pinterest.svg';
+import instagramIcon from 'assets/icons/instagram.svg';
+import twitterIcon from 'assets/icons/twitter.svg';
 
 const Footer = () => {
   return (

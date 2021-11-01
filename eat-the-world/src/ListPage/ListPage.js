@@ -1,8 +1,11 @@
+import ListRecipe from 'common/ListRecipe';
+
 const ListPage = () => {
   return (
-    <div className="text-container">
-      <p className="text-container__text">Search results for: Rice</p>
-    </div>
+    <section className="list-page">
+      <p className="list-page__text">Search results for: Rice</p>
+      <ListRecipe />
+    </section>
   );
 };
 

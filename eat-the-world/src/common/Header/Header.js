@@ -1,6 +1,6 @@
-import "./Header.scss";
-import hamburgerIcon from "../../assets/icons/hamburger.svg";
-import loginIcon from "../../assets/icons/login.svg";
+import './Header.scss';
+import hamburgerIcon from '../../assets/icons/hamburger.svg';
+import loginIcon from '../../assets/icons/login.svg';
 
 const Header = () => {
   return (

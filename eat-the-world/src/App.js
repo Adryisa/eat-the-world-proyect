@@ -27,6 +27,9 @@ function App() {
       <Home />
       <ListPage />
       <DetailsPage />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       <Footer />
     </main>

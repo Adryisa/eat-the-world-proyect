@@ -6,26 +6,29 @@ import './Categories.scss';
 const Categories = () => {
   return (
     <section className="categories">
-      <Swiper spaceBetween={50} slidesPerView={3}>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider__slide">Test</div>
-        </SwiperSlide>
-      </Swiper>
+      <h2 className="categories__title">Search by category</h2>
+      <div className="slider">
+        <Swiper spaceBetween={50} slidesPerView={3}>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="slider__slide">Test</div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </section>
   );
 };

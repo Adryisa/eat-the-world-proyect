@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import teriyaki from 'assets/img/teriyaki.jpeg';
 import starFavorite from 'assets/icons/star.svg';
 
-const Items = ({ title }) => {
+const Item = ({ title }) => {
   return (
     <li className="recipes-nav__list-item">
       <Link className="recipes-nav__link" to={`details/334`}>
@@ -27,4 +27,4 @@ const Items = ({ title }) => {
   );
 };
 
-export default Items;
+export default Item;

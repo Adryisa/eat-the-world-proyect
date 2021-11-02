@@ -10,7 +10,10 @@ export const ApiContextProvider = ({ children }) => {
 
   const handleSubmit = (e, input) => {
     e.preventDefault();
-    getRecipeByName(input).then((data) => setList(data));
+    getRecipeByName(input).then((data) => {
+      setList(data);
+      console.log(data);
+    });
     history.push('/recipes');
   };
 

@@ -21,7 +21,6 @@ export const ApiContextProvider = ({ children }) => {
     e.preventDefault();
     getRecipeByName(input).then((data) => {
       setList(data);
-      console.log(data);
     });
     history.push('/recipes');
   };

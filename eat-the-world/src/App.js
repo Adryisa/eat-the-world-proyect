@@ -10,11 +10,8 @@ function App() {
     <main className="main">
       <Header />
       <Home />
-<<<<<<< HEAD
       <ListPage />
-=======
       <DetailsPage />
->>>>>>> main
       <Footer />
     </main>
   );

@@ -1,8 +1,9 @@
 import generateObjetRecipe from './objectConstructor';
 
-export default function getRecipe() {
-  const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=Chicken';
-  return fetch(url)
+const urlBase = 'https://www.themealdb.com/api/json/v1/1';
+
+export default function getRecipeByName() {
+  return fetch(`${urlBase}/search.php?s=Chicken`)
     .then((res) => res.json())
     .then((data) => data.meals.map((item) => generateObjetRecipe(item)));
 }

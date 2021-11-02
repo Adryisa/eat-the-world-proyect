@@ -1,4 +1,4 @@
-import Items from './Items';
+import Item from './Item';
 import './ListRecipe.scss';
 
 const ListRecipe = () => {
@@ -7,7 +7,7 @@ const ListRecipe = () => {
     <nav className="recipes-nav">
       <ul className="recipes-nav__list">
         {info.map((item) => (
-          <Items title={item} />
+          <Item title={item} />
         ))}
       </ul>
     </nav>

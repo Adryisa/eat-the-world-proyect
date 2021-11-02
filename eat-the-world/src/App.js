@@ -1,11 +1,11 @@
 import { Switch, Route } from 'react-router-dom';
-
 import Header from './common/Header/Header';
 import Home from './Home/Home';
-import './App.scss';
 import DetailsPage from 'Details/details-page';
 import Footer from 'common/Footer/Footer';
 import ListPage from 'ListPage/ListPage';
+import FavoritesPage from 'Favorites/Favorites';
+import './App.scss';
 
 function App() {
   return (
@@ -20,6 +20,9 @@ function App() {
         </Route>
         <Route path="/details/:id">
           <DetailsPage />
+        </Route>
+        <Route path="/favorites">
+          <FavoritesPage />
         </Route>
       </Switch>
       <Footer />

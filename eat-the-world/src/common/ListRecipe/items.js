@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import teriyaki from 'assets/img/teriyaki.jpeg';
 import starFavorite from 'assets/icons/star.svg';
 
-const Items = () => {
+const Items = ({ title }) => {
   return (
     <li className="recipes-nav__list-item">
       <Link className="recipes-nav__link" to={`details/334`}>
@@ -12,7 +12,7 @@ const Items = () => {
           className="recipes-nav__item-img"
         />
         <div className="recipes-nav__item-info">
-          <h3 className="recipes-nav__info-text">Title</h3>
+          <h3 className="recipes-nav__info-text">{title}</h3>
           <p className="recipes-nav__info-text">3 servings</p>
           <p className="recipes-nav__info-text">30 minutes</p>
           <p className="recipes-nav__info-text">Asian, peruvian</p>

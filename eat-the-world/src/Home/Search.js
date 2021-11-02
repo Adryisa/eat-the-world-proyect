@@ -30,6 +30,7 @@ const Search = () => {
         </label>
         <input
           value={input}
+          autoComplete="off"
           onChange={(e) => setInput(e.target.value)}
           className="search-container-form__input"
           id="search-container-form__input"

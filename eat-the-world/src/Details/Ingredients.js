@@ -3,7 +3,7 @@ export default function Ingredients({ ingredients }) {
     <>
       {ingredients.map((item) => (
         <p>
-          {item.ingredient} -{item.quantity}
+          {item.ingredient} - {item.quantity}
         </p>
       ))}
     </>

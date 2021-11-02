@@ -11,7 +11,7 @@ const Categories = () => {
     <section className="categories">
       <h2 className="categories__title">Categories</h2>
       <div className="slider">
-        <Swiper slidesPerView={3}>
+        <Swiper spaceBetween={110} slidesPerView={3}>
           {countries.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="slider__slide">

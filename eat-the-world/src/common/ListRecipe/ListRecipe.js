@@ -1,4 +1,4 @@
-import Items from './items';
+import Items from './Items';
 import './ListRecipe.scss';
 
 const ListRecipe = () => {

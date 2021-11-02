@@ -1,6 +1,6 @@
 import ListRecipe from 'common/ListRecipe/ListRecipe';
 import { useApiContext } from 'contexts/ApiContext';
-
+import './ListPage.scss';
 const ListPage = () => {
   const { list } = useApiContext();
   return (

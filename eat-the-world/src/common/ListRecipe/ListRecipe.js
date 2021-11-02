@@ -1,13 +1,12 @@
 import Item from './Item';
 import './ListRecipe.scss';
 
-const ListRecipe = () => {
-  const info = ['title', 'cooking', 'tags'];
+const ListRecipe = ({ list }) => {
   return (
     <nav className="recipes-nav">
       <ul className="recipes-nav__list">
-        {info.map((item) => (
-          <Item title={item} />
+        {list.map((item) => (
+          <Item item={item} />
         ))}
       </ul>
     </nav>

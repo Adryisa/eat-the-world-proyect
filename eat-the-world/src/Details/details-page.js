@@ -3,7 +3,6 @@ import sopa from 'assets/img/sopa.jpg';
 import starIcon from 'assets/icons/star.svg';
 import shareIcon from 'assets/icons/share.svg';
 import printIcon from 'assets/icons/cil_print.svg';
-import getRecipe from 'services/apiServices.js';
 
 export default function DetailsPage({ props }) {
   return (
@@ -50,9 +49,6 @@ export default function DetailsPage({ props }) {
             nisi harum aliquid iste rerum eum, rem corporis cumque molestias
             fugiat voluptate!
           </p>
-        </div>
-        <div>
-          <button onClick={getRecipe()}>Call API</button>
         </div>
       </div>
     </section>

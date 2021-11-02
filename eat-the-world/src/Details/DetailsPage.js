@@ -1,13 +1,12 @@
-import './details.scss';
-import sopa from 'assets/img/sopa.jpg';
+import { useParams } from 'react-router-dom';
+import { useApiContext } from 'contexts/ApiContext';
 import starIcon from 'assets/icons/star.svg';
 import shareIcon from 'assets/icons/share.svg';
 import printIcon from 'assets/icons/cil_print.svg';
-import { useParams } from 'react-router-dom';
-import { useApiContext } from 'contexts/ApiContext';
 import Ingredients from './Ingredients';
+import './Details.scss';
 
-export default function DetailsPage({ props }) {
+export default function DetailsPage() {
   let { id } = useParams();
   const { list } = useApiContext();
   const recipe = list.find((item) => item.id === id);

@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import Header from './common/Header/Header';
 import Home from './Home/Home';
-import DetailsPage from 'Details/details-page';
+import DetailsPage from 'Details/DetailsPage';
 import Footer from 'common/Footer/Footer';
 import ListPage from 'ListPage/ListPage';
 import FavoritesPage from 'Favorites/Favorites';

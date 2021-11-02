@@ -1,15 +1,12 @@
 import { useState } from 'react';
+import { useApiContext } from 'contexts/ApiContext';
 import './Search.scss';
 import backgroundImage from '../assets/img/fruits-background.jpg';
 import searchIcon from '../assets/icons/magnifying-glass.svg';
 
 const Search = () => {
   const [input, setInput] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('button logic');
-  };
+  const { handleSubmit } = useApiContext();
 
   return (
     <section className="search-container">
@@ -21,7 +18,10 @@ const Search = () => {
         src={backgroundImage}
         alt="A variety of fruits and vegetables"
       />
-      <form onSubmit={handleSubmit} className="search-container-form">
+      <form
+        onSubmit={(e) => handleSubmit(e, input)}
+        className="search-container-form"
+      >
         <label
           className="search-container-form__label"
           htmlFor="search-container-form__input"

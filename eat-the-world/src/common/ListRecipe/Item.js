@@ -1,21 +1,18 @@
 import { Link } from 'react-router-dom';
-import teriyaki from 'assets/img/teriyaki.jpeg';
 import starFavorite from 'assets/icons/star.svg';
 
-const Item = ({ title }) => {
+const Item = ({ item }) => {
   return (
     <li className="recipes-nav__list-item">
-      <Link className="recipes-nav__link" to={`details/334`}>
+      <Link className="recipes-nav__link" to={`details/${item.id}`}>
         <img
-          src={teriyaki}
-          alt="Teriyaki Chicken"
+          src={item.picture}
+          alt={`${item.name} meal`}
           className="recipes-nav__item-img"
         />
         <div className="recipes-nav__item-info">
-          <h3 className="recipes-nav__info-text">{title}</h3>
-          <p className="recipes-nav__info-text">3 servings</p>
-          <p className="recipes-nav__info-text">30 minutes</p>
-          <p className="recipes-nav__info-text">Asian, peruvian</p>
+          <h3 className="recipes-nav__info-text">{item.name}</h3>
+          <p className="recipes-nav__info-text">{item.country}</p>
           <img
             src={starFavorite}
             alt="favorites icon"

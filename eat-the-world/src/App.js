@@ -11,6 +11,7 @@ function App() {
   return (
     <main className="main">
       <Header />
+<<<<<<< Updated upstream
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -22,6 +23,11 @@ function App() {
           <DetailsPage />
         </Route>
       </Switch>
+=======
+      <Home />
+      <ListPage />
+      <DetailsPage />
+>>>>>>> Stashed changes
       <Footer />
     </main>
   );

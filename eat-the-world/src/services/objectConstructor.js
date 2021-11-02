@@ -1,11 +1,9 @@
 // Generate object with cleaned data
 export default function generateObjetRecipe(item) {
-  const mealCountry =
-    item.strArea === 'Unknown' ? 'Other countries' : item.strArea;
   const recipe = {
     id: item.idMeal,
     name: item.strMeal,
-    country: mealCountry,
+    country: item.strArea,
     instructions: item.strInstructions,
     category: item.strCategory,
     picture: item.strMealThumb,

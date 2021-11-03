@@ -1,5 +1,5 @@
 import { useContext, createContext, useState, useEffect } from 'react';
-import { getRecipeByName } from 'services/apiServices';
+import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 
@@ -25,9 +25,16 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
+  const displayRecipeListCountry = (input) => {
+    getRecipeByCountry(input).then((data) => setList(data));
+    setSearchTerm(input);
+    history.push('/recipes');
+  };
+
   const value = {
     list,
     displayRecipeList,
+    displayRecipeListCountry,
     countries,
     searchTerm,
   };

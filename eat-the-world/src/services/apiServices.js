@@ -29,13 +29,12 @@ export function getCountries() {
 }
 
 export function getRecipeByCountry() {
-  return fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian')
+  const country = 'Canadian';
+  return fetch(`${urlBase}/filter.php?a=${country}`)
     .then((res) => res.json())
     .then((data) => {
       const promise = data.meals.map((item) => {
-        return fetch(
-          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${item.idMeal}`
-        )
+        return fetch(`${urlBase}/lookup.php?i=${item.idMeal}`)
           .then((res) => res.json())
           .then((data) => generateObjetRecipe(data.meals[0]));
       });

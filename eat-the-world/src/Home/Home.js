@@ -8,11 +8,6 @@ const Home = () => {
     <section className="home">
       <Search />
       <Categories />
-      <button
-        onClick={() => getRecipeByCountry().then((item) => console.log(item))}
-      >
-        Click me
-      </button>
     </section>
   );
 };

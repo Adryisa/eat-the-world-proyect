@@ -3,10 +3,9 @@ import { useApiContext } from 'contexts/ApiContext';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import './Categories.scss';
-import { Link } from 'react-router-dom';
 
 const Categories = () => {
-  const { countries } = useApiContext();
+  const { countries, displayRecipeListCountry } = useApiContext();
 
   return (
     <section className="categories">
@@ -15,7 +14,10 @@ const Categories = () => {
         <Swiper loop spaceBetween={110} slidesPerView={3}>
           {countries.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="slider__slide">
+              <div
+                className="slider__slide"
+                onClick={() => displayRecipeListCountry(item.country)}
+              >
                 <img
                   src={item.image}
                   className="slider__img"

@@ -19,9 +19,17 @@ export const ApiContextProvider = ({ children }) => {
     });
   }, []);
 
+<<<<<<< HEAD
+  const handleSubmit = (e, input) => {
+    e.preventDefault();
+    getRecipeByName(input).then((data) => {
+      setList(data);
+    });
+=======
   const displayRecipeList = (input) => {
     getRecipeByName(input).then((data) => setList(data));
     setSearchTerm(input);
+>>>>>>> main
     history.push('/recipes');
   };
 

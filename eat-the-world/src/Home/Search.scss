@@ -29,6 +29,7 @@
 
 .search-container-form {
   display: flex;
+  align-items: center;
   z-index: 2;
   height: 3.5rem;
   width: 30rem;
@@ -45,12 +46,23 @@
   &__input {
     border: none;
     height: 100%;
+    width: 22rem;
     flex-grow: 1;
     outline: none;
-    padding: 0 1.5rem;
+    padding: 0.2rem 1.5rem 0;
+    font-size: inherit;
   }
 
-  &__button {
+  &__delete {
+    height: 80%;
+    font-size: 1.8rem;
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid black;
+    padding-right: 1.2rem;
+  }
+
+  &__submit {
     width: 4rem;
     cursor: pointer;
     border: none;

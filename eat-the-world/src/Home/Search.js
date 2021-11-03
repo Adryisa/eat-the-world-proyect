@@ -35,7 +35,16 @@ const Search = () => {
           className="search-container-form__input"
           id="search-container-form__input"
         />
-        <button className="search-container-form__button">
+        {input.length > 0 && (
+          <button
+            onClick={() => setInput('')}
+            type="button"
+            className="search-container-form__delete"
+          >
+            X
+          </button>
+        )}
+        <button className="search-container-form__submit">
           <img
             src={searchIcon}
             className="search-container-form__icon"

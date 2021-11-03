@@ -3,7 +3,8 @@ export default function Ingredients({ ingredients }) {
     <>
       {ingredients.map((item, i) => (
         <p key={i}>
-          {item.ingredient} {item.quantity.trim() ? `- ${item.quantity}` : ''}
+          {item.ingredient}{' '}
+          {item.quantity.trim() ? `- ${item.quantity}` : '- To taste'}
         </p>
       ))}
     </>

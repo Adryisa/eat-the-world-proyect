@@ -24,11 +24,7 @@ const Categories = () => {
                   className="slider__img"
                   alt={`${item.country} meals`}
                 />
-                <p className="slider__text">
-                  {item.country === 'Unknown'
-                    ? 'Other countries'
-                    : item.country}
-                </p>
+                <p className="slider__text">{item.country}</p>
               </div>
             </SwiperSlide>
           ))}

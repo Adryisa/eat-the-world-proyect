@@ -19,7 +19,8 @@ export function getCountries() {
           .then((res) => res.json())
           .then((data) => {
             return {
-              country: item.strArea,
+              country:
+                item.strArea === 'Unknown' ? 'Other countries' : item.strArea,
               image: data.meals[0]?.strMealThumb,
             };
           });
@@ -29,7 +30,8 @@ export function getCountries() {
 }
 
 export function getRecipeByCountry(country) {
-  return fetch(`${urlBase}/filter.php?a=${country}`)
+  const cleanCountry = country === 'Other countries' ? 'Unknown' : country;
+  return fetch(`${urlBase}/filter.php?a=${cleanCountry}`)
     .then((res) => res.json())
     .then((data) => {
       const promise = data.meals.map((item) => {

@@ -10,7 +10,6 @@ export default function DetailsPage() {
   let { id } = useParams();
   const { list } = useApiContext();
   const recipe = list.find((item) => item.id === id);
-  console.log(recipe);
 
   return (
     <section className="details">

@@ -8,6 +8,7 @@ const ApiContext = createContext();
 export const ApiContextProvider = ({ children }) => {
   const [list, setList] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+
   const history = useHistory();
 
   const [countries, setCountries] = useState([]);

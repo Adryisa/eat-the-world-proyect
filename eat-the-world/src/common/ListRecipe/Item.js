@@ -11,8 +11,10 @@ const Item = ({ item }) => {
           className="recipes-nav__item-img"
         />
         <div className="recipes-nav__item-info">
-          <h3 className="recipes-nav__info-text">{item.name}</h3>
-          <p className="recipes-nav__info-text">{item.country}</p>
+          <h3 className="recipes-nav__info-header">{item.name}</h3>
+          <p className="recipes-nav__info-text">
+            {item.country === 'Unknown' ? 'Other countries' : item.country}
+          </p>
           <img
             src={starFavorite}
             alt="favorites icon"

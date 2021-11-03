@@ -6,11 +6,15 @@ import {
   useReducer,
 } from 'react';
 import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
-import { getFavorites, deleteFavorites } from 'services/userServices';
+import {
+  getFavorites,
+  deleteFavorites,
+  postFavorites,
+} from 'services/userServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 import { recipeReducer } from 'reducer/reducer';
-import { loadRecipes } from 'reducer/actionCreator';
+import { loadRecipes, addRecipe } from 'reducer/actionCreator';
 import { DeleteRecipe } from 'reducer/actionCreator';
 
 const ApiContext = createContext();
@@ -50,11 +54,16 @@ export const ApiContextProvider = ({ children }) => {
     dispatch(DeleteRecipe(id));
   };
 
+  const addFavorites = () => {
+    postFavorites().then((data) => dispatch(addRecipe(data)));
+  };
+
   const value = {
     list,
     displayRecipeList,
     displayRecipeListCountry,
     displayFavorites,
+    addFavorites,
     countries,
     searchTerm,
     deleteOneRecipe,

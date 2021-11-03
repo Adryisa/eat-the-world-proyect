@@ -5,5 +5,7 @@ export function getFavorites() {
 }
 
 export function deleteFavorites(id) {
-  fetch(`${urlBase}/${id}`);
+  fetch(`${urlBase}/${id}`, {
+    method: 'DELETE',
+  });
 }

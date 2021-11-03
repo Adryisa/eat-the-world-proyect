@@ -8,6 +8,7 @@ const ApiContext = createContext();
 export const ApiContextProvider = ({ children }) => {
   const [list, setList] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+
   const history = useHistory();
 
   const [countries, setCountries] = useState([]);
@@ -18,8 +19,7 @@ export const ApiContextProvider = ({ children }) => {
     });
   }, []);
 
-  const handleSubmit = (e, input) => {
-    e.preventDefault();
+  const displayRecipeList = (input) => {
     getRecipeByName(input).then((data) => setList(data));
     setSearchTerm(input);
     history.push('/recipes');
@@ -27,7 +27,7 @@ export const ApiContextProvider = ({ children }) => {
 
   const value = {
     list,
-    handleSubmit,
+    displayRecipeList,
     countries,
     searchTerm,
   };

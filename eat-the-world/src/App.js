@@ -5,11 +5,13 @@ import DetailsPage from 'Details/DetailsPage';
 import Footer from 'common/Footer/Footer';
 import ListPage from 'ListPage/ListPage';
 import FavoritesPage from 'Favorites/Favorites';
+import Sidebar from 'common/Burger/Sidebar';
 import './App.scss';
 
 function App() {
   return (
-    <main className="main">
+    <main className="main" id="main">
+      <Sidebar OuterContainerId={'main'} width={250} />
       <Header />
       <Switch>
         <Route path="/" exact>

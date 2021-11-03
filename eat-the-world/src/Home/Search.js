@@ -6,7 +6,12 @@ import searchIcon from '../assets/icons/magnifying-glass.svg';
 
 const Search = () => {
   const [input, setInput] = useState('');
-  const { handleSubmit } = useApiContext();
+  const { displayRecipeList } = useApiContext();
+
+  const handleSubmit = (e, input) => {
+    e.preventDefault();
+    displayRecipeList(input);
+  };
 
   return (
     <section className="search-container">

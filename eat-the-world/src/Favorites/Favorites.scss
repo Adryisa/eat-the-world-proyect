@@ -1,0 +1,11 @@
+@import 'scss/variables';
+
+.fav-page {
+  flex-grow: 1;
+  padding: 3rem 2rem;
+
+  &__title {
+    color: $secondary-color;
+    margin-bottom: 2rem;
+  }
+}

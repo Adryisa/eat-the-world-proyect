@@ -9,3 +9,21 @@ export function getRecipeByName(input) {
     .then((res) => res.json())
     .then((data) => data.meals?.map((item) => generateObjetRecipe(item)));
 }
+
+export function getCountries() {
+  return fetch(`${urlBase}/list.php?a=list`)
+    .then((res) => res.json())
+    .then((data) => {
+      const promise = data.meals.map((item) => {
+        return fetch(`${urlBase}/filter.php?a=${item.strArea}`)
+          .then((res) => res.json())
+          .then((data) => {
+            return {
+              country: item.strArea,
+              image: data.meals[0]?.strMealThumb,
+            };
+          });
+      });
+      return Promise.all(promise);
+    });
+}

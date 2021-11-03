@@ -5,4 +5,19 @@
   &__text {
     margin-bottom: 2rem;
   }
+
+  &__no-results {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__no-results-text {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+  }
 }

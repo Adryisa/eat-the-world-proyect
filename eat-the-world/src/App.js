@@ -4,7 +4,7 @@ import Home from './Home/Home';
 import DetailsPage from 'Details/DetailsPage';
 import Footer from 'common/Footer/Footer';
 import ListPage from 'ListPage/ListPage';
-import FavoritesPage from 'Favorites/Favorites';
+import FavoritesPage from 'Favorites/FavoritesPage';
 import Sidebar from 'common/Burger/Sidebar';
 import './App.scss';
 
@@ -23,7 +23,7 @@ function App() {
         <Route path="/details/:id">
           <DetailsPage />
         </Route>
-        <Route path="/favorites">
+        <Route path="/favorites" exact>
           <FavoritesPage />
         </Route>
       </Switch>

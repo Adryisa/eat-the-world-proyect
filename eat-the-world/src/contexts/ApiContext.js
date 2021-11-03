@@ -6,6 +6,7 @@ import {
   useReducer,
 } from 'react';
 import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
+import { getFavorites } from 'services/userServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 import { recipeReducer } from 'reducer/reducer';
@@ -39,10 +40,15 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
+  const displayFavorites = () => {
+    getFavorites().then((data) => dispatch(loadRecipes(data)));
+  };
+
   const value = {
     list,
     displayRecipeList,
     displayRecipeListCountry,
+    displayFavorites,
     countries,
     searchTerm,
   };

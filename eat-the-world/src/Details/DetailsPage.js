@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApiContext } from 'contexts/ApiContext';
 import starIcon from 'assets/icons/star.svg';
@@ -10,6 +11,10 @@ export default function DetailsPage() {
   let { id } = useParams();
   const { list } = useApiContext();
   const recipe = list.find((item) => item.id === id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="details">

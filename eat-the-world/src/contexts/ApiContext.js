@@ -1,12 +1,20 @@
-import { useContext, createContext, useState, useEffect } from 'react';
+import {
+  useContext,
+  createContext,
+  useState,
+  useEffect,
+  useReducer,
+} from 'react';
 import { getRecipeByName } from 'services/apiServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
+import { recipeReducer } from 'reducer/reducer';
+import { loadRecipes } from 'reducer/actionCreator';
 
 const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
-  const [list, setList] = useState([]);
+  const [list, dispatch] = useReducer(recipeReducer, []);
   const [searchTerm, setSearchTerm] = useState('');
 
   const history = useHistory();
@@ -20,7 +28,7 @@ export const ApiContextProvider = ({ children }) => {
   }, []);
 
   const displayRecipeList = (input) => {
-    getRecipeByName(input).then((data) => setList(data));
+    getRecipeByName(input).then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
     history.push('/recipes');
   };

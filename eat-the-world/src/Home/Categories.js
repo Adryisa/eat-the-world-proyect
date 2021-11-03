@@ -5,7 +5,7 @@ import 'swiper/swiper.min.css';
 import './Categories.scss';
 
 const Categories = () => {
-  const { countries } = useApiContext();
+  const { countries, displayRecipeListCountry } = useApiContext();
 
   return (
     <section className="categories">
@@ -14,17 +14,17 @@ const Categories = () => {
         <Swiper loop spaceBetween={110} slidesPerView={3}>
           {countries.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="slider__slide">
+              <div
+                role="button"
+                className="slider__slide"
+                onClick={() => displayRecipeListCountry(item.country)}
+              >
                 <img
                   src={item.image}
                   className="slider__img"
                   alt={`${item.country} meals`}
                 />
-                <p className="slider__text">
-                  {item.country === 'Unknown'
-                    ? 'Other countries'
-                    : item.country}
-                </p>
+                <p className="slider__text">{item.country}</p>
               </div>
             </SwiperSlide>
           ))}

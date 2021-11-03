@@ -6,7 +6,7 @@ const ListRecipe = ({ list }) => {
     <nav className="recipes-nav">
       <ul className="recipes-nav__list">
         {list.map((item) => (
-          <Item item={item} />
+          <Item key={item.id} item={item} />
         ))}
       </ul>
     </nav>

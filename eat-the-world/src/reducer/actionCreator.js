@@ -6,3 +6,10 @@ export const loadRecipes = (data) => {
     payload: data,
   };
 };
+
+export const DeleteRecipe = (id) => {
+  return {
+    type: ActionTypes.delete,
+    payload: id,
+  };
+};

@@ -9,9 +9,9 @@ const Categories = () => {
 
   return (
     <section className="categories">
-      <h2 className="categories__title">Search by category</h2>
+      <h2 className="categories__title">Categories</h2>
       <div className="slider">
-        <Swiper spaceBetween={50} slidesPerView={3}>
+        <Swiper loop spaceBetween={110} slidesPerView={3}>
           {countries.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="slider__slide">
@@ -20,7 +20,11 @@ const Categories = () => {
                   className="slider__img"
                   alt={`${item.country} meals`}
                 />
-                <p className="slider__text">{item.country}</p>
+                <p className="slider__text">
+                  {item.country === 'Unknown'
+                    ? 'Other countries'
+                    : item.country}
+                </p>
               </div>
             </SwiperSlide>
           ))}

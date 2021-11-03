@@ -1,3 +1,5 @@
+@import 'scss/variables';
+
 .categories {
   padding: 5rem 1.5rem;
   flex-grow: 1;
@@ -5,6 +7,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+
+  &__title {
+    color: $secondary-color;
+  }
 }
 
 .slider {
@@ -13,14 +19,15 @@
   &__slide {
     height: 100%;
     width: 100%;
-    height: 120px;
-    width: 120px;
+    width: 140px;
+    height: 140px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
   &__img {
     width: 100%;
@@ -32,13 +39,18 @@
     align-items: center;
     background: radial-gradient(
       50% 50% at 50% 50%,
-      rgba(0, 0, 0, 0.35) 50%,
+      rgba(0, 0, 0, 0.4) 50%,
       rgba(0, 0, 0, 0) 100%
     );
     width: 100%;
     height: 100%;
     font-weight: bold;
+    font-size: 1.8rem;
     color: white;
     position: absolute;
   }
+}
+
+.swiper-wrapper {
+  padding: 1rem 0;
 }

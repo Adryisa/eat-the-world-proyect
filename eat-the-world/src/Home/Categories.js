@@ -15,6 +15,7 @@ const Categories = () => {
           {countries.map((item, index) => (
             <SwiperSlide key={index}>
               <div
+                role="button"
                 className="slider__slide"
                 onClick={() => displayRecipeListCountry(item.country)}
               >

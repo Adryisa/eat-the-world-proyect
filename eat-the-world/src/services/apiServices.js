@@ -28,8 +28,7 @@ export function getCountries() {
     });
 }
 
-export function getRecipeByCountry() {
-  const country = 'Canadian';
+export function getRecipeByCountry(country) {
   return fetch(`${urlBase}/filter.php?a=${country}`)
     .then((res) => res.json())
     .then((data) => {
@@ -41,7 +40,3 @@ export function getRecipeByCountry() {
       return Promise.all(promise);
     });
 }
-
-// const promise = data.meals.map((item) => {
-//   return fetch(`${url_id}${item.idMeal}`);
-//   console.log(promise);

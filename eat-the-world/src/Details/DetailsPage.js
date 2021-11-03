@@ -2,9 +2,9 @@ import { useParams } from 'react-router-dom';
 import { useApiContext } from 'contexts/ApiContext';
 import starIcon from 'assets/icons/star.svg';
 import shareIcon from 'assets/icons/share.svg';
-import printIcon from 'assets/icons/cil_print.svg';
+import saveIcon from 'assets/icons/save.svg';
 import Ingredients from './Ingredients';
-import './Details.scss';
+import './DetailsPage.scss';
 
 export default function DetailsPage() {
   let { id } = useParams();
@@ -14,26 +14,38 @@ export default function DetailsPage() {
 
   return (
     <section className="details">
-      <div className="details-header">
+      <header className="details-header">
         <h2 className="details-header__title">{recipe.name}</h2>
         <img
           className="details-picture"
           src={recipe.picture}
           alt={recipe.name}
         />
-      </div>
-      <ul className="details-menu">
-        <li className="details-menu__item">
-          <img className="details-menu__image" src={starIcon} alt="favorite" />
-        </li>
-        <li className="details-menu__item">
-          <img className="details-menu__image" src={shareIcon} alt="share" />
-        </li>
-        <li className="details-menu__item">
-          <img className="details-menu__image" src={printIcon} alt="print" />
-        </li>
-      </ul>
+      </header>
       <div className="details-body">
+        <ul className="details-menu">
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              src={starIcon}
+              alt="favorite star icon"
+            />
+          </li>
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              src={shareIcon}
+              alt="share icon"
+            />
+          </li>
+          <li className="details-menu__item">
+            <img
+              className="details-menu__image"
+              src={saveIcon}
+              alt="print icon"
+            />
+          </li>
+        </ul>
         <div className="details-ingredients">
           <h3 className="details-ingredients__title">Ingredients</h3>
           <div className="details-ingredients-list">

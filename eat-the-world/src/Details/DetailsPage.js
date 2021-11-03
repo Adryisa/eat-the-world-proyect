@@ -9,7 +9,7 @@ import './DetailsPage.scss';
 
 export default function DetailsPage() {
   let { id } = useParams();
-  const { list } = useApiContext();
+  const { list, deleteOneRecipe } = useApiContext();
   const recipe = list.find((item) => item.id === id);
 
   useEffect(() => {

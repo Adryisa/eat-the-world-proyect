@@ -19,10 +19,25 @@ export function getCountries() {
           .then((res) => res.json())
           .then((data) => {
             return {
-              country: item.strArea,
+              country:
+                item.strArea === 'Unknown' ? 'Other countries' : item.strArea,
               image: data.meals[0]?.strMealThumb,
             };
           });
+      });
+      return Promise.all(promise);
+    });
+}
+
+export function getRecipeByCountry(country) {
+  const cleanCountry = country === 'Other countries' ? 'Unknown' : country;
+  return fetch(`${urlBase}/filter.php?a=${cleanCountry}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const promise = data.meals.map((item) => {
+        return fetch(`${urlBase}/lookup.php?i=${item.idMeal}`)
+          .then((res) => res.json())
+          .then((data) => generateObjetRecipe(data.meals[0]));
       });
       return Promise.all(promise);
     });

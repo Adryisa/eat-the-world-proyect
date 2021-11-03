@@ -1,9 +1,10 @@
 export default function Ingredients({ ingredients }) {
   return (
     <>
-      {ingredients.map((item) => (
-        <p>
-          {item.ingredient} -{item.quantity}
+      {ingredients.map((item, i) => (
+        <p key={i}>
+          {item.ingredient}{' '}
+          {item.quantity.trim() ? `- ${item.quantity}` : '- To taste'}
         </p>
       ))}
     </>

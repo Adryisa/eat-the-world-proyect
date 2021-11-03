@@ -27,3 +27,22 @@ export function getCountries() {
       return Promise.all(promise);
     });
 }
+
+export function getRecipeByCountry() {
+  return fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian')
+    .then((res) => res.json())
+    .then((data) => {
+      const promise = data.meals.map((item) => {
+        return fetch(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${item.idMeal}`
+        )
+          .then((res) => res.json())
+          .then((data) => generateObjetRecipe(data.meals[0]));
+      });
+      return Promise.all(promise);
+    });
+}
+
+// const promise = data.meals.map((item) => {
+//   return fetch(`${url_id}${item.idMeal}`);
+//   console.log(promise);

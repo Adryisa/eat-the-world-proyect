@@ -3,6 +3,7 @@ import { useApiContext } from 'contexts/ApiContext';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import './Categories.scss';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
   const { countries } = useApiContext();

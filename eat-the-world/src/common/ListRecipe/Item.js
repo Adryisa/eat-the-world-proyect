@@ -4,7 +4,7 @@ import starFavorite from 'assets/icons/star.svg';
 const Item = ({ item }) => {
   return (
     <li className="recipes-nav__list-item">
-      <Link className="recipes-nav__link" to={`details/${item.id}`}>
+      <Link className="recipes-nav__link" to={`details/${item.recipeId}`}>
         <img
           src={item.picture}
           alt={`${item.name} meal`}

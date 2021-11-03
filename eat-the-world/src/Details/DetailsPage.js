@@ -9,8 +9,8 @@ import './DetailsPage.scss';
 
 export default function DetailsPage() {
   let { id } = useParams();
-  const { list, deleteOneRecipe } = useApiContext();
-  const recipe = list.find((item) => item.id === id);
+  const { list } = useApiContext();
+  const recipe = list.find((item) => item.recipeId === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);

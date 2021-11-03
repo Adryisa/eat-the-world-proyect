@@ -3,7 +3,7 @@ export default function generateObjetRecipe(item) {
   const recipe = {
     id: item.idMeal,
     name: item.strMeal,
-    country: item.strArea,
+    country: item.strArea === 'Unknown' ? 'Other countries' : item.strArea,
     instructions: item.strInstructions,
     category: item.strCategory,
     picture: item.strMealThumb,

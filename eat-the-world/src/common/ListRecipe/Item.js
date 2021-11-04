@@ -1,32 +1,11 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addFavorites } from 'services/userServices';
-import { useApiContext } from 'contexts/ApiContext';
-import starIcon from 'assets/icons/star.svg';
-import starIconFavorite from 'assets/icons/star-favorite.svg';
+import ButtonStar from 'common/Button/ButtonStar';
 
 const Item = ({ item }) => {
-  const [favorite, setFavorite] = useState(item.isFavorite);
-  const { deleteOneRecipeNoDispatch } = useApiContext();
-
-  const handleClick = () => {
-    favorite
-      ? deleteOneRecipeNoDispatch(item)
-      : addFavorites({ ...item, isFavorite: true });
-    setFavorite(!favorite);
-  };
-
   return (
     <li className="recipes-nav__list-item">
       <div className="recipes-nav__link-container">
-        <button className="recipes-nav__star-button" onClick={handleClick}>
-          <img
-            src={favorite ? starIconFavorite : starIcon}
-            alt={
-              favorite ? 'favorite star icon' : 'favorite star icon selected'
-            }
-          />
-        </button>
+        <ButtonStar item={item} className="recipes-nav__star-button" />
         <Link className="recipes-nav__link" to={`details/${item.recipeId}`}>
           <img
             src={item.picture}

@@ -1,34 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApiContext } from 'contexts/ApiContext';
-import { addFavorites } from 'services/userServices';
-import starIcon from 'assets/icons/star.svg';
-import starIconFavorite from 'assets/icons/star-favorite.svg';
 import shareIcon from 'assets/icons/share.svg';
 import saveIcon from 'assets/icons/save.svg';
 import Ingredients from './Ingredients';
 import './DetailsPage.scss';
+import ButtonStar from 'common/Button/ButtonStar';
 
 export default function DetailsPage() {
   const [recipe, setRecipe] = useState();
-  const [favorite, setFavorite] = useState();
   let { id } = useParams();
-  const { deleteOneRecipeNoDispatch, displayRecipeDetails } = useApiContext();
+  const { displayRecipeDetails } = useApiContext();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     displayRecipeDetails(id).then((data) => {
-      setFavorite(data.isFavorite);
       setRecipe(data);
     });
   }, []);
-
-  const handleClick = () => {
-    favorite
-      ? deleteOneRecipeNoDispatch(recipe)
-      : addFavorites({ ...recipe, isFavorite: true });
-    setFavorite(!favorite);
-  };
 
   return (
     <section className="details">
@@ -45,13 +34,7 @@ export default function DetailsPage() {
           <div className="details-body">
             <ul className="details-menu">
               <li className="details-menu__item">
-                <button onClick={handleClick}>
-                  <img
-                    className="details-menu__image"
-                    src={favorite ? starIconFavorite : starIcon}
-                    alt="favorite star icon"
-                  />
-                </button>
+                <ButtonStar item={recipe} className="details-menu__bt" />
               </li>
               <li className="details-menu__item">
                 <img

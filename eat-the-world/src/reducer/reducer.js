@@ -6,6 +6,8 @@ export const recipeReducer = (state, action) => {
       return [...action.payload];
     case ActionTypes.delete:
       return state.filter((item) => item.id !== action.payload);
+    case ActionTypes.add:
+      return [...state, action.payload];
     default:
       throw new Error();
   }

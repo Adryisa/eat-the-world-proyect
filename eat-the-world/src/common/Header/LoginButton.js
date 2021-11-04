@@ -5,8 +5,8 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <button className="header__login-btn" onClick={() => loginWithRedirect()}>
-      <img src={loginIcon} alt="login" className="header__login-img" />
+    <button className="header__user-btn" onClick={() => loginWithRedirect()}>
+      <img src={loginIcon} alt="login" className="header__user-img" />
     </button>
   );
 };

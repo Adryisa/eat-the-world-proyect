@@ -1,11 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import logoutIcon from 'assets/icons/logout.svg';
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button onClick={() => logout({ returnTo: window.location.origin })}>
-      Log Out
+    <button
+      className="header__user-btn"
+      onClick={() => logout({ returnTo: window.location.origin })}
+    >
+      <img src={logoutIcon} alt="login" className="header__user-img" />
     </button>
   );
 };

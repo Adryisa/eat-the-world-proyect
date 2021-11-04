@@ -1,11 +1,13 @@
 @import 'scss/variables';
 
 .bm-item {
-  display: inline-block;
+  display: flex !important;
+  align-items: center;
+  gap: 2rem;
 
   /* Our sidebar item styling */
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 2.5rem;
   color: white;
   font-weight: bold;
   transition: color 0.2s;

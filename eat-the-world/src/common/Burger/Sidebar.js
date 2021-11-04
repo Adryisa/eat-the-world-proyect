@@ -8,15 +8,15 @@ import './Sidebar.scss';
 const Sidebar = (props) => {
   return (
     <Menu {...props}>
-      <Link to="/">
+      <Link to="/" alt="login">
         <img src={home} alt="login" className="slide__icon" />
         Home
       </Link>
-      <Link to="/recipes">
+      <Link to="/recipes" alt="login">
         <img src={forks} alt="login" className="slide__icon" />
         Recipes
       </Link>
-      <Link to="/favorites">
+      <Link to="/favorites" alt="login">
         <img src={star} alt="login" className="slide__icon" />
         Favorites
       </Link>

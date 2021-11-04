@@ -42,3 +42,11 @@ export function getRecipeByCountry(country) {
       return Promise.all(promise);
     });
 }
+
+export function getRecipeById(id) {
+  return fetch(`${urlBase}/lookup.php?i=${id}`)
+    .then((res) => res.json())
+    .then((data) => generateObjetRecipe(data.meals[0]));
+}
+
+getRecipeById(52919).then((data) => console.log(data));

@@ -9,7 +9,7 @@ import './DetailsPage.scss';
 
 export default function DetailsPage() {
   let { id } = useParams();
-  const { list } = useApiContext();
+  const { list, deleteOneRecipe } = useApiContext();
   const recipe = list.find((item) => item.recipeId === id);
 
   useEffect(() => {
@@ -29,11 +29,13 @@ export default function DetailsPage() {
       <div className="details-body">
         <ul className="details-menu">
           <li className="details-menu__item">
-            <img
-              className="details-menu__image"
-              src={starIcon}
-              alt="favorite star icon"
-            />
+            <button onClick={() => deleteOneRecipe(recipe.id)}>
+              <img
+                className="details-menu__image"
+                src={starIcon}
+                alt="favorite star icon"
+              />
+            </button>
           </li>
           <li className="details-menu__item">
             <img

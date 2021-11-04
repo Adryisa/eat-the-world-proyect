@@ -1,5 +1,6 @@
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
+import { ApiContextProvider } from 'contexts/ApiContext';
 import Home from './Home';
 
 describe('Given the component Home', () => {
@@ -7,11 +8,19 @@ describe('Given the component Home', () => {
     test('then it should be rendered', () => {
       render(
         <MemoryRouter>
-          <Home />
+          <ApiContextProvider>
+            <Home />
+          </ApiContextProvider>
         </MemoryRouter>
       );
-      expect(screen.getByLabelText('Search:')).toBeInTheDocument();
-      expect(screen.getByText(/Hero Search/)).toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', {
+          name: /what do you want to eat today\?/i,
+        })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('heading', { name: /categories/i })
+      ).toBeInTheDocument();
     });
   });
 });

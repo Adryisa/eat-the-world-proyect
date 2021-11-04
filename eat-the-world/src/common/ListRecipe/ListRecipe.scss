@@ -4,6 +4,16 @@
     flex-direction: column;
     gap: 2rem;
   }
+  &__link-container {
+    position: relative;
+  }
+  &__star-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    bottom: 1rem;
+    right: 1rem;
+  }
   &__list-item {
     overflow: hidden;
     box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.25);
@@ -21,7 +31,6 @@
     width: 40%;
   }
   &__item-info {
-    position: relative;
     width: 60%;
     padding: 1rem 1.5rem;
   }
@@ -29,10 +38,5 @@
     font-size: 1.8rem;
     font-family: 'Sintony', sans-serif;
     margin-bottom: 1rem;
-  }
-  &__star {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
   }
 }

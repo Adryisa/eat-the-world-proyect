@@ -9,7 +9,7 @@ import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
 import {
   getFavorites,
   deleteFavorites,
-  postFavorites,
+  addFavorites,
 } from 'services/userServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
@@ -71,9 +71,16 @@ export const ApiContextProvider = ({ children }) => {
     deleteFavorites(id);
     dispatch(DeleteRecipe(id));
   };
+  const deleteOneRecipeNoDispatch = (item) => {
+    getFavorites().then((data) =>
+      data.forEach((el) => {
+        if (el.recipeId === item.recipeId) deleteFavorites(el.id);
+      })
+    );
+  };
 
-  const addFavorites = () => {
-    postFavorites().then((data) => dispatch(addRecipe(data)));
+  const addOneRecipe = (input) => {
+    addFavorites(input).then((data) => dispatch(addRecipe(data)));
   };
 
   const value = {
@@ -82,7 +89,8 @@ export const ApiContextProvider = ({ children }) => {
     displayRecipeListFavorites,
     displayRecipeListCountry,
     displayFavorites,
-    addFavorites,
+    deleteOneRecipeNoDispatch,
+    addOneRecipe,
     countries,
     searchTerm,
     deleteOneRecipe,

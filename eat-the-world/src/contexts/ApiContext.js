@@ -39,6 +39,24 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
+  const displayRecipeListFavorites = (input) => {
+    getRecipeByName(input)
+      .then((apiData) =>
+        getFavorites().then((favoritesData) => {
+          const apiArray = apiData?.map((apiEl) => {
+            const found = favoritesData.find(
+              (el) => el.recipeId === apiEl.recipeId
+            );
+            return { ...apiEl, isFavorite: found ? true : false };
+          });
+          return apiArray ? Promise.all(apiArray) : null;
+        })
+      )
+      .then((data) => dispatch(loadRecipes(data)));
+    setSearchTerm(input);
+    history.push('/recipes');
+  };
+
   const displayRecipeListCountry = (input) => {
     getRecipeByCountry(input).then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
@@ -61,6 +79,7 @@ export const ApiContextProvider = ({ children }) => {
   const value = {
     list,
     displayRecipeList,
+    displayRecipeListFavorites,
     displayRecipeListCountry,
     displayFavorites,
     addFavorites,

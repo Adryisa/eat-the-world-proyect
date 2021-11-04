@@ -4,7 +4,7 @@ import starIcon from 'assets/icons/star.svg';
 import starIconFavorite from 'assets/icons/star-favorite.svg';
 
 const Item = ({ item }) => {
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(item.isFavorite);
 
   return (
     <li className="recipes-nav__list-item">

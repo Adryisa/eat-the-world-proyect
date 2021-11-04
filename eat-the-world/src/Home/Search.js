@@ -6,11 +6,11 @@ import searchIcon from '../assets/icons/magnifying-glass.svg';
 
 const Search = () => {
   const [input, setInput] = useState('');
-  const { displayRecipeList } = useApiContext();
+  const { displayRecipeList, displayRecipeListFavorites } = useApiContext();
 
   const handleSubmit = (e, input) => {
     e.preventDefault();
-    displayRecipeList(input);
+    displayRecipeListFavorites(input);
   };
 
   return (

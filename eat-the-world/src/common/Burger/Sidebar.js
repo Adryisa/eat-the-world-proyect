@@ -20,6 +20,7 @@ const Sidebar = (props) => {
         <img src={star} alt="login" className="slide__icon" />
         Favorites
       </Link>
+      <Link to="/profile">Profile</Link>
     </Menu>
   );
 };

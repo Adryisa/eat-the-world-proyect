@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApiContext } from 'contexts/ApiContext';
-import { getRecipeById } from 'services/apiServices';
+import { addFavorites } from 'services/userServices';
 import starIcon from 'assets/icons/star.svg';
+import starIconFavorite from 'assets/icons/star-favorite.svg';
 import shareIcon from 'assets/icons/share.svg';
 import saveIcon from 'assets/icons/save.svg';
 import Ingredients from './Ingredients';
@@ -10,13 +11,24 @@ import './DetailsPage.scss';
 
 export default function DetailsPage() {
   const [recipe, setRecipe] = useState();
+  const [favorite, setFavorite] = useState();
   let { id } = useParams();
-  const { deleteOneRecipe } = useApiContext();
+  const { deleteOneRecipeNoDispatch, displayRecipeDetails } = useApiContext();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getRecipeById(id).then((data) => setRecipe(data));
+    displayRecipeDetails(id).then((data) => {
+      setFavorite(data.isFavorite);
+      setRecipe(data);
+    });
   }, []);
+
+  const handleClick = () => {
+    favorite
+      ? deleteOneRecipeNoDispatch(recipe)
+      : addFavorites({ ...recipe, isFavorite: true });
+    setFavorite(!favorite);
+  };
 
   return (
     <section className="details">
@@ -33,10 +45,10 @@ export default function DetailsPage() {
           <div className="details-body">
             <ul className="details-menu">
               <li className="details-menu__item">
-                <button onClick={() => deleteOneRecipe(recipe.id)}>
+                <button onClick={handleClick}>
                   <img
                     className="details-menu__image"
-                    src={starIcon}
+                    src={favorite ? starIconFavorite : starIcon}
                     alt="favorite star icon"
                   />
                 </button>

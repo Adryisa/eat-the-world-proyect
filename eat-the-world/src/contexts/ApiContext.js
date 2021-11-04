@@ -5,7 +5,11 @@ import {
   useEffect,
   useReducer,
 } from 'react';
-import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
+import {
+  getRecipeByName,
+  getRecipeByCountry,
+  getRecipeById,
+} from 'services/apiServices';
 import {
   getFavorites,
   deleteFavorites,
@@ -14,8 +18,7 @@ import {
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 import { recipeReducer } from 'reducer/reducer';
-import { loadRecipes, addRecipe } from 'reducer/actionCreator';
-import { DeleteRecipe } from 'reducer/actionCreator';
+import { loadRecipes, addRecipe, deleteRecipe } from 'reducer/actionCreator';
 
 const ApiContext = createContext();
 
@@ -57,6 +60,17 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
+  const displayRecipeDetails = (recipeId) => {
+    return getRecipeById(recipeId).then((apiData) =>
+      getFavorites().then((favoritesData) => {
+        const found = favoritesData.find(
+          (el) => el.recipeId === apiData.recipeId
+        );
+        return { ...apiData, isFavorite: found ? true : false };
+      })
+    );
+  };
+
   const displayRecipeListCountry = (input) => {
     getRecipeByCountry(input).then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
@@ -67,10 +81,17 @@ export const ApiContextProvider = ({ children }) => {
     getFavorites().then((data) => dispatch(loadRecipes(data)));
   };
 
-  const deleteOneRecipe = (id) => {
-    deleteFavorites(id);
-    dispatch(DeleteRecipe(id));
+  const deleteOneRecipe = (item) => {
+    getFavorites().then((data) =>
+      data.forEach((el) => {
+        if (el.recipeId === item.recipeId) {
+          deleteFavorites(el.id);
+          dispatch(deleteRecipe(el.id));
+        }
+      })
+    );
   };
+
   const deleteOneRecipeNoDispatch = (item) => {
     getFavorites().then((data) =>
       data.forEach((el) => {
@@ -91,6 +112,7 @@ export const ApiContextProvider = ({ children }) => {
     displayFavorites,
     deleteOneRecipeNoDispatch,
     addOneRecipe,
+    displayRecipeDetails,
     countries,
     searchTerm,
     deleteOneRecipe,

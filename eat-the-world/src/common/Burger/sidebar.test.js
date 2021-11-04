@@ -14,7 +14,7 @@ describe('Given the component footer', () => {
       fireEvent.click(screen.getByRole('button'));
       expect(screen.getAllByAltText('login')).toHaveLength(3);
       expect(screen.getByText(/home/i)).toBeInTheDocument();
-      expect(screen.getByText(/recipe/i)).toBeInTheDocument();
+      expect(screen.getByText(/profile/i)).toBeInTheDocument();
       expect(screen.getByText(/favorites/i)).toBeInTheDocument();
     });
   });

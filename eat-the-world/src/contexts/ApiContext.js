@@ -5,17 +5,20 @@ import {
   useEffect,
   useReducer,
 } from 'react';
-import { getRecipeByName, getRecipeByCountry } from 'services/apiServices';
+import {
+  getRecipeByName,
+  getRecipeByCountry,
+  getRecipeById,
+} from 'services/apiServices';
 import {
   getFavorites,
   deleteFavorites,
-  postFavorites,
+  addFavorites,
 } from 'services/userServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 import { recipeReducer } from 'reducer/reducer';
-import { loadRecipes, addRecipe } from 'reducer/actionCreator';
-import { DeleteRecipe } from 'reducer/actionCreator';
+import { loadRecipes, addRecipe, deleteRecipe } from 'reducer/actionCreator';
 
 const ApiContext = createContext();
 
@@ -39,6 +42,35 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
+  const displayRecipeListFavorites = (input) => {
+    getRecipeByName(input)
+      .then((apiData) =>
+        getFavorites().then((favoritesData) => {
+          const apiArray = apiData?.map((apiEl) => {
+            const found = favoritesData.find(
+              (el) => el.recipeId === apiEl.recipeId
+            );
+            return { ...apiEl, isFavorite: found ? true : false };
+          });
+          return apiArray ? Promise.all(apiArray) : null;
+        })
+      )
+      .then((data) => dispatch(loadRecipes(data)));
+    setSearchTerm(input);
+    history.push('/recipes');
+  };
+
+  const displayRecipeDetails = (recipeId) => {
+    return getRecipeById(recipeId).then((apiData) =>
+      getFavorites().then((favoritesData) => {
+        const found = favoritesData.find(
+          (el) => el.recipeId === apiData.recipeId
+        );
+        return { ...apiData, isFavorite: found ? true : false };
+      })
+    );
+  };
+
   const displayRecipeListCountry = (input) => {
     getRecipeByCountry(input).then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
@@ -49,21 +81,38 @@ export const ApiContextProvider = ({ children }) => {
     getFavorites().then((data) => dispatch(loadRecipes(data)));
   };
 
-  const deleteOneRecipe = (id) => {
-    deleteFavorites(id);
-    dispatch(DeleteRecipe(id));
+  const deleteOneRecipe = (item) => {
+    getFavorites().then((data) =>
+      data.forEach((el) => {
+        if (el.recipeId === item.recipeId) {
+          deleteFavorites(el.id);
+          dispatch(deleteRecipe(el.id));
+        }
+      })
+    );
   };
 
-  const addFavorites = () => {
-    postFavorites().then((data) => dispatch(addRecipe(data)));
+  const deleteOneRecipeNoDispatch = (item) => {
+    getFavorites().then((data) =>
+      data.forEach((el) => {
+        if (el.recipeId === item.recipeId) deleteFavorites(el.id);
+      })
+    );
+  };
+
+  const addOneRecipe = (input) => {
+    addFavorites(input).then((data) => dispatch(addRecipe(data)));
   };
 
   const value = {
     list,
     displayRecipeList,
+    displayRecipeListFavorites,
     displayRecipeListCountry,
     displayFavorites,
-    addFavorites,
+    deleteOneRecipeNoDispatch,
+    addOneRecipe,
+    displayRecipeDetails,
     countries,
     searchTerm,
     deleteOneRecipe,

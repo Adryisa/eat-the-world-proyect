@@ -10,10 +10,10 @@ export function deleteFavorites(id) {
   });
 }
 
-export function postFavorites(test) {
+export function addFavorites(input) {
   return fetch(urlBase, {
-    method: `POST`,
-    body: JSON.stringify(test),
+    method: 'POST',
+    body: JSON.stringify(input),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },

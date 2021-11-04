@@ -7,7 +7,7 @@ export const loadRecipes = (data) => {
   };
 };
 
-export const DeleteRecipe = (id) => {
+export const deleteRecipe = (id) => {
   return {
     type: ActionTypes.delete,
     payload: id,

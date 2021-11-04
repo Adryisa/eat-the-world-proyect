@@ -5,7 +5,6 @@ import './ListPage.scss';
 
 const ListPage = () => {
   const { list, searchTerm } = useApiContext();
-  console.log(list);
   return (
     <section className="list-page">
       <p className="list-page__text">Search results for: {searchTerm}</p>

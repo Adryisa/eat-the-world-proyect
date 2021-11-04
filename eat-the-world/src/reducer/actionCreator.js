@@ -13,3 +13,10 @@ export const DeleteRecipe = (id) => {
     payload: id,
   };
 };
+
+export const addRecipe = (data) => {
+  return {
+    type: ActionTypes.add,
+    payload: data,
+  };
+};

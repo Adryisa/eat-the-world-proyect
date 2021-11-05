@@ -8,6 +8,8 @@ Check it out
 
 2. Add api folder also at the root with db.json inside:
 
+---
+
 {
 "favorites": [
 {
@@ -60,6 +62,9 @@ Check it out
 "id": 8
 }
 ]
+}
+
+---
 
 3. Run npm i -g currently
 

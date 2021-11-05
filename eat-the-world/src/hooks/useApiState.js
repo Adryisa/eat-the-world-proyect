@@ -3,8 +3,10 @@ import { useApiContext } from 'contexts/ApiContext';
 import { getFavorites } from 'services/userServices';
 import * as apiServices from 'services/apiServices';
 import { loadRecipes } from 'reducer/actionCreator';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useApiState = () => {
+  const { user } = useAuth0;
   const { list, dispatch, searchTerm, setSearchTerm, countries } =
     useApiContext();
   const history = useHistory();
@@ -13,7 +15,7 @@ const useApiState = () => {
     return getFavorites().then((favoritesData) => {
       const apiArray = apiData?.map((apiEl) => {
         const found = favoritesData.find(
-          (el) => el.recipeId === apiEl.recipeId
+          (el) => el.recipeId === apiEl.recipeId && el.userEmail === user?.email
         );
         return { ...apiEl, isFavorite: found ? true : false };
       });

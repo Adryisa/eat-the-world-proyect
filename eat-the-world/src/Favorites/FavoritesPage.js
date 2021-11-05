@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import ListRecipe from 'common/ListRecipe/ListRecipe';
 import { useApiContext } from 'contexts/ApiContext';
 import './Favorites.scss';
 
 const FavoritesPage = () => {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const { list, displayFavorites } = useApiContext();
 
   useEffect(() => {
@@ -12,8 +14,21 @@ const FavoritesPage = () => {
 
   return (
     <section className="fav-page">
-      <h2 className="fav-page__title">Your favorites</h2>
-      {list.length > 0 && <ListRecipe list={list} type="user" />}
+      {isAuthenticated ? (
+        <>
+          <h2 className="fav-page__title">Your favorites</h2>
+          {list.length > 0 && <ListRecipe list={list} type="user" />}
+        </>
+      ) : (
+        <div className="fav-page__not-logged-wrapper">
+          <p className="fav-page__not-logged-text">
+            You are not logged in. Please log in to see your favorites.
+          </p>
+          <button className="fav-page__btn" onClick={() => loginWithRedirect()}>
+            Log in
+          </button>
+        </div>
+      )}
     </section>
   );
 };

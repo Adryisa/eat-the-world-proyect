@@ -8,4 +8,26 @@
     color: $secondary-color;
     margin-bottom: 2rem;
   }
+
+  &__not-logged-wrapper {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__not-logged-text {
+    width: 70%;
+    text-align: center;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    font-family: inherit;
+  }
 }

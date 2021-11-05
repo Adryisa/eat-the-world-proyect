@@ -18,7 +18,6 @@ ReactDOM.render(
         </ApiContextProvider>
       </Auth0Provider>
     </Router>
-    ,
   </React.StrictMode>,
   document.getElementById('root')
 );

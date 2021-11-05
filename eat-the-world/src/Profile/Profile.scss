@@ -11,7 +11,13 @@
     font-family: 'Sintony', sans-serif;
   }
 
-  &__logout-btn {
+  &__not-logged {
+    width: 70%;
+    text-align: center;
+  }
+
+  &__btn {
+    margin-top: 2rem;
     background-color: transparent;
     border-radius: 10px;
     border: 1px solid black;

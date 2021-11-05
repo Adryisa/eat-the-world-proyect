@@ -3,9 +3,13 @@
 .header {
   height: 4.5rem;
   background: $primary-color;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100%;
   z-index: 2;
+
+  &__spacer {
+    height: 4.5rem;
+  }
 
   &__title {
     display: none;

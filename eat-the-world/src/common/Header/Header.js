@@ -6,12 +6,15 @@ import './Header.scss';
 const Header = () => {
   const { isAuthenticated } = useAuth0();
   return (
-    <header className="header">
-      <h1 className="header__title">Eat the World</h1>
-      <div className="header__hamburger-login">
-        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-      </div>
-    </header>
+    <>
+      <header className="header">
+        <h1 className="header__title">Eat the World</h1>
+        <div className="header__hamburger-login">
+          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+        </div>
+      </header>
+      <div className="header__spacer" />
+    </>
   );
 };
 

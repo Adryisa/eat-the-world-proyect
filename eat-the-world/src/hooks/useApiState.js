@@ -6,7 +6,7 @@ import { loadRecipes } from 'reducer/actionCreator';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const useApiState = () => {
-  const { user } = useAuth0;
+  const { user } = useAuth0();
   const { list, dispatch, searchTerm, setSearchTerm, countries } =
     useApiContext();
   const history = useHistory();

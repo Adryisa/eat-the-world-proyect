@@ -6,7 +6,7 @@ import user from 'assets/icons/user-icon.svg';
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(false);
   const handleStateChange = (state) => setIsOpen(state.isOpen);

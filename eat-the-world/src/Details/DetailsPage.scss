@@ -22,7 +22,7 @@
 .details-menu {
   margin-top: 1rem;
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: flex-end;
   gap: 2rem;
 
   &__item {

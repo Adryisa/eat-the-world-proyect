@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useApiContext } from 'contexts/ApiContext';
+import useApiState from 'hooks/useApiState';
 import './Search.scss';
 import backgroundImage from '../assets/img/fruits-background.jpg';
 import searchIcon from '../assets/icons/magnifying-glass.svg';
 
 const Search = () => {
   const [input, setInput] = useState('');
-  const { displayRecipeList, displayRecipeListFavorites } = useApiContext();
+  const { displayRecipeList } = useApiState();
 
   const handleSubmit = (e, input) => {
     e.preventDefault();
-    displayRecipeListFavorites(input);
+    displayRecipeList(input);
   };
 
   return (

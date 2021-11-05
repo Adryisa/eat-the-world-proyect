@@ -1,24 +1,33 @@
+import { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import forks from 'assets/icons/forks-white.svg';
 import star from 'assets/icons/start-white.svg';
 import home from 'assets/icons/white-house.svg';
+import user from 'assets/icons/user-icon.svg';
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClick = () => setIsOpen(false);
+  const handleStateChange = (state) => setIsOpen(state.isOpen);
   return (
-    <Menu {...props}>
-      <Link to="/" alt="login">
-        <img src={home} alt="login" className="slide__icon" />
+    <Menu
+      OuterContainerId={'main'}
+      width={250}
+      isOpen={isOpen}
+      onStateChange={(state) => handleStateChange(state)}
+    >
+      <Link to="/" onClick={handleClick}>
+        <img src={home} alt="home icon" className="slide__icon" />
         Home
       </Link>
-      <Link to="/recipes" alt="login">
-        <img src={forks} alt="login" className="slide__icon" />
-        Recipes
-      </Link>
-      <Link to="/favorites" alt="login">
-        <img src={star} alt="login" className="slide__icon" />
+      <Link to="/favorites" onClick={handleClick}>
+        <img src={star} alt="favorites icon" className="slide__icon" />
         Favorites
+      </Link>
+      <Link to="/profile" onClick={handleClick}>
+        <img src={user} alt="user icon" className="slide__icon" />
+        Profile
       </Link>
     </Menu>
   );

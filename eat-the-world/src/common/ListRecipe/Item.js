@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import ButtonStar from 'common/Button/ButtonStar';
 
-const Item = ({ item }) => {
+const Item = ({ item, type }) => {
   return (
     <li className="recipes-nav__list-item">
       <div className="recipes-nav__link-container">
-        <ButtonStar item={item} className="recipes-nav__star-button" />
+        <ButtonStar
+          item={item}
+          type={type}
+          className="recipes-nav__star-button"
+        />
         <Link className="recipes-nav__link" to={`details/${item.recipeId}`}>
           <img
             src={item.picture}

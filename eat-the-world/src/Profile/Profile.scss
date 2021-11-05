@@ -1,0 +1,27 @@
+.profile {
+  flex-grow: 1;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  &__name {
+    font-family: 'Sintony', sans-serif;
+  }
+
+  &__not-logged {
+    width: 70%;
+    text-align: center;
+  }
+
+  &__btn {
+    margin-top: 2rem;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    font-family: inherit;
+  }
+}

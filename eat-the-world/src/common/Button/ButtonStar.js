@@ -1,27 +1,33 @@
 import { useState } from 'react';
-import { useApiContext } from 'contexts/ApiContext';
+import { useAuth0 } from '@auth0/auth0-react';
+import useUserState from 'hooks/useUserState';
 import starIcon from 'assets/icons/star.svg';
 import starIconFavorite from 'assets/icons/star-favorite.svg';
-import { addFavorites } from 'services/userServices';
 
-const ButtonStar = ({ item, className }) => {
+const ButtonStar = ({ item, type = 'api', className }) => {
+  const { isAuthenticated } = useAuth0();
   const [favorite, setFavorite] = useState(item.isFavorite);
-  const { deleteOneRecipeNoDispatch } = useApiContext();
+  const { deleteOneRecipeNoDispatch, deleteOneRecipe, addOneRecipeNoDispatch } =
+    useUserState();
 
   const handleClick = () => {
-    favorite
-      ? deleteOneRecipeNoDispatch(item)
-      : addFavorites({ ...item, isFavorite: true });
+    if (favorite) {
+      type === 'user' ? deleteOneRecipe(item) : deleteOneRecipeNoDispatch(item);
+    } else {
+      addOneRecipeNoDispatch(item);
+    }
     setFavorite(!favorite);
   };
 
   return (
-    <button className={className} onClick={handleClick}>
-      <img
-        src={favorite ? starIconFavorite : starIcon}
-        alt={favorite ? 'favorite star icon' : 'favorite star icon selected'}
-      />
-    </button>
+    isAuthenticated && (
+      <button className={className} onClick={handleClick}>
+        <img
+          src={favorite ? starIconFavorite : starIcon}
+          alt={favorite ? 'favorite star icon' : 'favorite star icon selected'}
+        />
+      </button>
+    )
   );
 };
 

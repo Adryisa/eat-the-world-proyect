@@ -1,8 +1,6 @@
 import generateObjetRecipe from './objectConstructor';
 
-const { REACT_APP_API_KEY } = process.env;
-
-const urlBase = `https://www.themealdb.com/api/json/v2/${REACT_APP_API_KEY}`;
+const urlBase = `https://www.themealdb.com/api/json/v1/1`;
 
 export function getRecipeByName(input) {
   return fetch(`${urlBase}/search.php?s=${input}`)

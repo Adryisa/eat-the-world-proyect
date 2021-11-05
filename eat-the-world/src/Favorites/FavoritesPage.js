@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import ListRecipe from 'common/ListRecipe/ListRecipe';
-import { useApiContext } from 'contexts/ApiContext';
+import useUserState from 'hooks/useUserState';
 import './Favorites.scss';
 
 const FavoritesPage = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
-  const { list, displayFavorites } = useApiContext();
+  const { list, displayFavorites } = useUserState();
 
   useEffect(() => {
     displayFavorites();

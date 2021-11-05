@@ -5,26 +5,21 @@ import {
   useEffect,
   useReducer,
 } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+
 import {
   getRecipeByName,
   getRecipeByCountry,
   getRecipeById,
 } from 'services/apiServices';
-import {
-  getFavorites,
-  deleteFavorites,
-  addFavorites,
-} from 'services/userServices';
+import { getFavorites } from 'services/userServices';
 import { useHistory } from 'react-router-dom';
 import { getCountries } from 'services/apiServices';
 import { recipeReducer } from 'reducer/reducer';
-import { loadRecipes, addRecipe, deleteRecipe } from 'reducer/actionCreator';
+import { loadRecipes } from 'reducer/actionCreator';
 
 const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
-  const { user } = useAuth0();
   const [list, dispatch] = useReducer(recipeReducer, []);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -77,46 +72,14 @@ export const ApiContextProvider = ({ children }) => {
     history.push('/recipes');
   };
 
-  const displayFavorites = () => {
-    getFavorites().then((data) =>
-      dispatch(loadRecipes(data.filter((el) => el.userEmail === user?.email)))
-    );
-  };
-
-  const deleteOneRecipe = (item) => {
-    getFavorites().then((data) =>
-      data.forEach((el) => {
-        if (el.recipeId === item.recipeId) {
-          deleteFavorites(el.id);
-          dispatch(deleteRecipe(el.id));
-        }
-      })
-    );
-  };
-
-  const deleteOneRecipeNoDispatch = (item) => {
-    getFavorites().then((data) =>
-      data.forEach((el) => {
-        if (el.recipeId === item.recipeId) deleteFavorites(el.id);
-      })
-    );
-  };
-
-  const addOneRecipe = (input) => {
-    addFavorites(input).then((data) => dispatch(addRecipe(data)));
-  };
-
   const value = {
     list,
+    dispatch,
     displayRecipeList,
     displayRecipeListCountry,
-    displayFavorites,
-    deleteOneRecipeNoDispatch,
-    addOneRecipe,
     displayRecipeDetails,
     countries,
     searchTerm,
-    deleteOneRecipe,
   };
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;

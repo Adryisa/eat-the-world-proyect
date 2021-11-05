@@ -7,7 +7,7 @@ export default function generateObjetRecipe(item) {
     instructions: item.strInstructions,
     category: item.strCategory,
     picture: item.strMealThumb,
-    tags: item.strTags,
+    isFavorite: false,
     ingredients: [],
   };
   for (let i = 1; i < 20; i++) {

@@ -37,27 +37,23 @@ export const ApiContextProvider = ({ children }) => {
   }, []);
 
   const displayRecipeList = (input) => {
-    getRecipeByName(input).then((data) => dispatch(loadRecipes(data)));
+    getRecipeByName(input)
+      .then((apiData) => compareDataWithFavorites(apiData))
+      .then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
     history.push('/recipes');
   };
 
-  const displayRecipeListFavorites = (input) => {
-    getRecipeByName(input)
-      .then((apiData) =>
-        getFavorites().then((favoritesData) => {
-          const apiArray = apiData?.map((apiEl) => {
-            const found = favoritesData.find(
-              (el) => el.recipeId === apiEl.recipeId
-            );
-            return { ...apiEl, isFavorite: found ? true : false };
-          });
-          return apiArray ? Promise.all(apiArray) : null;
-        })
-      )
-      .then((data) => dispatch(loadRecipes(data)));
-    setSearchTerm(input);
-    history.push('/recipes');
+  const compareDataWithFavorites = (apiData) => {
+    return getFavorites().then((favoritesData) => {
+      const apiArray = apiData?.map((apiEl) => {
+        const found = favoritesData.find(
+          (el) => el.recipeId === apiEl.recipeId
+        );
+        return { ...apiEl, isFavorite: found ? true : false };
+      });
+      return apiArray ? Promise.all(apiArray) : null;
+    });
   };
 
   const displayRecipeDetails = (recipeId) => {
@@ -72,7 +68,9 @@ export const ApiContextProvider = ({ children }) => {
   };
 
   const displayRecipeListCountry = (input) => {
-    getRecipeByCountry(input).then((data) => dispatch(loadRecipes(data)));
+    getRecipeByCountry(input)
+      .then((apiData) => compareDataWithFavorites(apiData))
+      .then((data) => dispatch(loadRecipes(data)));
     setSearchTerm(input);
     history.push('/recipes');
   };
@@ -107,7 +105,6 @@ export const ApiContextProvider = ({ children }) => {
   const value = {
     list,
     displayRecipeList,
-    displayRecipeListFavorites,
     displayRecipeListCountry,
     displayFavorites,
     deleteOneRecipeNoDispatch,

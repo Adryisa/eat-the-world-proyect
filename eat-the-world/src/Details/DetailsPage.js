@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useApiContext } from 'contexts/ApiContext';
+import useApiState from 'hooks/useApiState';
 import shareIcon from 'assets/icons/share.svg';
 import saveIcon from 'assets/icons/save.svg';
 import Ingredients from './Ingredients';
@@ -10,7 +10,7 @@ import ButtonStar from 'common/Button/ButtonStar';
 export default function DetailsPage() {
   const [recipe, setRecipe] = useState();
   let { id } = useParams();
-  const { displayRecipeDetails } = useApiContext();
+  const { displayRecipeDetails } = useApiState();
 
   useEffect(() => {
     window.scrollTo(0, 0);

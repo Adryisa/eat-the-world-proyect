@@ -1,11 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useApiContext } from 'contexts/ApiContext';
+import useApiState from 'hooks/useApiState';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import './Categories.scss';
 
 const Categories = () => {
-  const { countries, displayRecipeListCountry } = useApiContext();
+  const { countries, displayRecipeListCountry } = useApiState();
 
   return (
     <section className="categories">

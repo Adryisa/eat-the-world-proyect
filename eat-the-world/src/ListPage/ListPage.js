@@ -1,10 +1,10 @@
 import ListRecipe from 'common/ListRecipe/ListRecipe';
-import { useApiContext } from 'contexts/ApiContext';
+import useApiState from 'hooks/useApiState';
 import noResultsImg from 'assets/img/crying-orange.png';
 import './ListPage.scss';
 
 const ListPage = () => {
-  const { list, searchTerm } = useApiContext();
+  const { list, searchTerm } = useApiState();
   return (
     <section className="list-page">
       <p className="list-page__text">Search results for: {searchTerm}</p>

@@ -1,11 +1,11 @@
 import { Router } from 'react-router-dom';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { ApiContextProvider } from 'contexts/ApiContext';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import App from 'App';
 
-describe('Given the component Home', () => {
+describe('Given the component Search', () => {
   describe('when a term is searched', () => {
     test('then it should trigger path change', () => {
       const history = createMemoryHistory();

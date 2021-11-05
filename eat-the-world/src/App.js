@@ -12,7 +12,7 @@ import './App.scss';
 function App() {
   return (
     <main className="main" id="main">
-      <Sidebar OuterContainerId={'main'} width={250} />
+      <Sidebar />
       <Header />
       <Switch>
         <Route path="/" exact>

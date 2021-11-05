@@ -15,7 +15,7 @@ const useApiState = () => {
     return getFavorites().then((favoritesData) => {
       const apiArray = apiData?.map((apiEl) => {
         const found = favoritesData.find(
-          (el) => el.recipeId === apiEl.recipeId && el.userEmail === user.email
+          (el) => el.recipeId === apiEl.recipeId && el.userEmail === user?.email
         );
         return { ...apiEl, isFavorite: found ? true : false };
       });

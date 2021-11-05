@@ -13,7 +13,7 @@ const FavoritesPage = () => {
   return (
     <section className="fav-page">
       <h2 className="fav-page__title">Your favorites</h2>
-      {list.length > 0 && <ListRecipe list={list} />}
+      {list.length > 0 && <ListRecipe list={list} type="user" />}
     </section>
   );
 };

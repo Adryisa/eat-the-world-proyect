@@ -9,7 +9,7 @@ const ListPage = () => {
     <section className="list-page">
       <p className="list-page__text">Search results for: {searchTerm}</p>
       {list ? (
-        <ListRecipe list={list} />
+        <ListRecipe list={list} type="api" />
       ) : (
         <div className="list-page__no-results">
           <img

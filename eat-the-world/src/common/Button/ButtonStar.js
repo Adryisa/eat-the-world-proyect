@@ -6,7 +6,7 @@ import starIconFavorite from 'assets/icons/star-favorite.svg';
 import { addFavorites } from 'services/userServices';
 
 const ButtonStar = ({ item, type = 'api', className }) => {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   const [favorite, setFavorite] = useState(item.isFavorite);
   const { deleteOneRecipeNoDispatch, deleteOneRecipe } = useApiContext();
 
@@ -14,7 +14,7 @@ const ButtonStar = ({ item, type = 'api', className }) => {
     if (favorite) {
       type === 'user' ? deleteOneRecipe(item) : deleteOneRecipeNoDispatch(item);
     } else {
-      addFavorites({ ...item, isFavorite: true });
+      addFavorites({ ...item, isFavorite: true, userEmail: user.email });
     }
     setFavorite(!favorite);
   };

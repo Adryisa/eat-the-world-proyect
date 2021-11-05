@@ -15,13 +15,19 @@ const FavoritesPage = () => {
   return (
     <section className="fav-page">
       {isAuthenticated ? (
-        <>
-          <h2 className="fav-page__title">Your favorites</h2>
-          {list.length > 0 && <ListRecipe list={list} type="user" />}
-        </>
+        list.length > 0 ? (
+          <>
+            <h2 className="fav-page__title">Your favorites</h2>
+            <ListRecipe list={list} type="user" />
+          </>
+        ) : (
+          <div className="fav-page__wrapper">
+            <p className="text">You have not saved any favorites.</p>
+          </div>
+        )
       ) : (
-        <div className="fav-page__not-logged-wrapper">
-          <p className="fav-page__not-logged-text">
+        <div className="fav-page__wrapper">
+          <p className="fav-page__text">
             You are not logged in. Please log in to see your favorites.
           </p>
           <button className="fav-page__btn" onClick={() => loginWithRedirect()}>

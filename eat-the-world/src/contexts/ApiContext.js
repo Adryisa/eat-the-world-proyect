@@ -5,6 +5,7 @@ import {
   useEffect,
   useReducer,
 } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   getRecipeByName,
   getRecipeByCountry,
@@ -23,6 +24,7 @@ import { loadRecipes, addRecipe, deleteRecipe } from 'reducer/actionCreator';
 const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
+  const { user } = useAuth0();
   const [list, dispatch] = useReducer(recipeReducer, []);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -76,7 +78,9 @@ export const ApiContextProvider = ({ children }) => {
   };
 
   const displayFavorites = () => {
-    getFavorites().then((data) => dispatch(loadRecipes(data)));
+    getFavorites().then((data) =>
+      dispatch(loadRecipes(data.filter((el) => el.userEmail === user?.email)))
+    );
   };
 
   const deleteOneRecipe = (item) => {

@@ -24,7 +24,7 @@ const ButtonStar = ({ item, type = 'api', className }) => {
       <button className={className} onClick={handleClick}>
         <img
           src={favorite ? starIconFavorite : starIcon}
-          alt={favorite ? 'favorite star icon' : 'favorite star icon selected'}
+          alt={favorite ? 'favorite star icon selected' : 'favorite star icon'}
         />
       </button>
     )

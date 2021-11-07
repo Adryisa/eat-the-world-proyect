@@ -1,42 +1,40 @@
 import { Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { ApiContextProvider } from 'contexts/ApiContext';
-import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
-import Categories from './Categories';
 import useApiState from 'hooks/useApiState';
+import DetailsPage from './DetailsPage';
 
 jest.mock('hooks/useApiState');
+window.scrollTo = jest.fn();
 
 describe('Given the component categories', () => {
   describe('when component is instantiated', () => {
-    test('then it should be rendered', () => {
+    test('then it should be rendered', async () => {
       const history = createMemoryHistory();
+      history.push('/details/1111');
       useApiState.mockImplementation(() => {
         return {
-          countries: [
-            {
-              country: 'American',
-              image: '',
-            },
-          ],
-          displayRecipeListCountry: jest.fn(() => {
-            history.push('/recipes');
+          displayRecipeDetails: jest.fn().mockResolvedValue({
+            recipeId: 1111,
+            name: 'chicken wings',
+            country: '',
+            instructions: 'fry',
+            category: '',
+            picture: '',
+            isFavorite: false,
+            ingredients: [],
           }),
         };
       });
-
       render(
         <Router history={history}>
           <ApiContextProvider>
-            <Categories />
+            <DetailsPage />
           </ApiContextProvider>
         </Router>
       );
-
-      expect(screen.getAllByText(/American/i)).toBeTruthy();
-      userEvent.click(screen.queryAllByRole('button')[0]);
-      expect(history.location.pathname).toBe('/recipes');
+      expect(await screen.findByText(/chicken wings/i)).toBeInTheDocument();
     });
   });
 });

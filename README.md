@@ -1,7 +1,7 @@
 # Group4-Project-202110-The-A-Team
 
 Welcome to our proyect Eat the world, is an app that gives you world recipes and also allows you to sign in and saves those recipes that you choose as your favorites.
-
+For the moment is made in Mobile Only.
 Check it out
 
 1. Clone the repo

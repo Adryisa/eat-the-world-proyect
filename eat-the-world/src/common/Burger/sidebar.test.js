@@ -10,6 +10,7 @@ describe('Given the component footer', () => {
           <Sidebar />
         </Router>
       );
+
       expect(screen.getByText(/home/i)).toBeInTheDocument();
       expect(screen.getByText(/profile/i)).toBeInTheDocument();
       expect(screen.getByText(/favorites/i)).toBeInTheDocument();

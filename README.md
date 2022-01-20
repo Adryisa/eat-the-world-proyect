@@ -1,6 +1,6 @@
-# Group4-Project-202110-The-A-Team
+# Eat the World
 
-Welcome to our project **Eat The World**, developed by [@amorosAlvaro](https://github.com/amorosAlvaro), [@Adrysa](https://github.com/Adryisa) and [@alsersan](https://github.com/alsersan). This app provides recipes from around the world, and allows logged in users to save their favorite recipes. Check it out!
+Welcome to our project **Eat The World**, developed by [@Adrysa](https://github.com/Adryisa), [@amorosAlvaro](https://github.com/amorosAlvaro) and [@alsersan](https://github.com/alsersan). This app provides recipes from around the world, and allows logged in users to save their favorite recipes. Check it out!
 
 1. Clone the repo
 

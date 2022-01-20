@@ -1,7 +1,12 @@
-# Eat the World ![icon-mobile](https://user-images.githubusercontent.com/87788382/150332290-1a1ffd67-efd1-43ec-a86d-b9a4a7ffd17c.png)
+# ![icon-mobile](https://user-images.githubusercontent.com/87788382/150332290-1a1ffd67-efd1-43ec-a86d-b9a4a7ffd17c.png)
 
 
 Welcome to our project **Eat The World**, developed by [@Adrysa](https://github.com/Adryisa), [@amorosAlvaro](https://github.com/amorosAlvaro) and [@alsersan](https://github.com/alsersan). This app provides recipes from around the world, and allows logged in users to save their favorite recipes. Check it out!
+
+## Stack: 
+  - React
+  - Test: Jest 
+  - REST API consumption
 
 1. Clone the repo
 
